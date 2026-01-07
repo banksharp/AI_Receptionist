@@ -68,6 +68,10 @@ export default function Businesses() {
       queryClient.invalidateQueries({ queryKey: ['businesses'] })
       setShowModal(false)
       reset()
+    },
+    onError: (error) => {
+      console.error('Create business error:', error)
+      alert('Failed to create business. Check console for details.')
     }
   })
 
@@ -79,6 +83,10 @@ export default function Businesses() {
       setShowModal(false)
       setEditingBusiness(null)
       reset()
+    },
+    onError: (error) => {
+      console.error('Update business error:', error)
+      alert('Failed to update business. Check console for details.')
     }
   })
 

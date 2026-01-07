@@ -85,6 +85,10 @@ export default function Prompts() {
       queryClient.invalidateQueries({ queryKey: ['prompts'] })
       setShowModal(false)
       reset()
+    },
+    onError: (error) => {
+      console.error('Create prompt error:', error)
+      alert('Failed to create prompt. Check console for details.')
     }
   })
 
@@ -96,6 +100,10 @@ export default function Prompts() {
       setShowModal(false)
       setEditingPrompt(null)
       reset()
+    },
+    onError: (error) => {
+      console.error('Update prompt error:', error)
+      alert('Failed to update prompt. Check console for details.')
     }
   })
 
