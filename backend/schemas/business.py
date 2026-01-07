@@ -39,6 +39,9 @@ class BusinessBase(BaseModel):
     ai_voice: str = "alloy"
     ai_personality: Optional[str] = None
     greeting_message: str = "Thank you for calling. How may I help you today?"
+    
+    # Twilio
+    twilio_phone_number: Optional[str] = None
 
 
 class BusinessCreate(BusinessBase):
@@ -64,6 +67,7 @@ class BusinessUpdate(BaseModel):
     ai_voice: Optional[str] = None
     ai_personality: Optional[str] = None
     greeting_message: Optional[str] = None
+    twilio_phone_number: Optional[str] = None
     is_active: Optional[bool] = None
 
 
