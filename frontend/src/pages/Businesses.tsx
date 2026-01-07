@@ -370,12 +370,12 @@ export default function Businesses() {
                 <div>
                   <label className="label">AI Voice</label>
                   <select {...register('ai_voice')} className="input-field">
-                    <option value="alloy">Alloy (Female, US)</option>
-                    <option value="echo">Echo (Male, US)</option>
-                    <option value="fable">Fable (Female, British)</option>
-                    <option value="onyx">Onyx (Male, British)</option>
-                    <option value="nova">Nova (Female, US)</option>
-                    <option value="shimmer">Shimmer (Female, US)</option>
+                    <option value="alloy">Joanna - Neural (Female, US)</option>
+                    <option value="echo">Matthew - Neural (Male, US)</option>
+                    <option value="fable">Amy - Neural (Female, British)</option>
+                    <option value="onyx">Brian - Neural (Male, British)</option>
+                    <option value="nova">Salli - Neural (Female, US)</option>
+                    <option value="shimmer">Kimberly - Neural (Female, US)</option>
                   </select>
                 </div>
 

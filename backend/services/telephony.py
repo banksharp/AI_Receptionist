@@ -28,7 +28,7 @@ class TelephonyService:
     def create_greeting_response(
         self,
         greeting_message: str,
-        voice: str = "Polly.Joanna"
+        voice: str = "Polly.Joanna-Neural"
     ) -> str:
         """Create initial greeting TwiML response."""
         response = VoiceResponse()
@@ -54,7 +54,7 @@ class TelephonyService:
     def create_response(
         self,
         message: str,
-        voice: str = "Polly.Joanna",
+        voice: str = "Polly.Joanna-Neural",
         gather_input: bool = True,
         end_call: bool = False
     ) -> str:
@@ -87,7 +87,7 @@ class TelephonyService:
         self,
         phone_number: str,
         message: Optional[str] = None,
-        voice: str = "Polly.Joanna"
+        voice: str = "Polly.Joanna-Neural"
     ) -> str:
         """Transfer the call to another number."""
         response = VoiceResponse()
@@ -103,7 +103,7 @@ class TelephonyService:
         self,
         message: str,
         recording_callback: str,
-        voice: str = "Polly.Joanna"
+        voice: str = "Polly.Joanna-Neural"
     ) -> str:
         """Send caller to voicemail."""
         response = VoiceResponse()

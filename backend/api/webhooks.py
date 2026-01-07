@@ -107,16 +107,16 @@ async def handle_incoming_call(
     # Generate greeting response
     telephony = TelephonyService()
     
-    # Map AI voices to Twilio Polly voices (ai_voice is for OpenAI, Polly is for Twilio)
+    # Map AI voices to Twilio Polly Neural voices (much more human-sounding)
     polly_voice_map = {
-        'alloy': 'Polly.Joanna',
-        'echo': 'Polly.Matthew', 
-        'fable': 'Polly.Amy',
-        'onyx': 'Polly.Brian',
-        'nova': 'Polly.Salli',
-        'shimmer': 'Polly.Kimberly'
+        'alloy': 'Polly.Joanna-Neural',
+        'echo': 'Polly.Matthew-Neural', 
+        'fable': 'Polly.Amy-Neural',
+        'onyx': 'Polly.Brian-Neural',
+        'nova': 'Polly.Salli-Neural',
+        'shimmer': 'Polly.Kimberly-Neural'
     }
-    voice = polly_voice_map.get(business.ai_voice, 'Polly.Joanna')
+    voice = polly_voice_map.get(business.ai_voice, 'Polly.Joanna-Neural')
     
     return Response(
         content=telephony.create_greeting_response(
