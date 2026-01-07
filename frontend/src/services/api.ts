@@ -103,7 +103,7 @@ export const promptApi = {
   create: (data: Partial<Prompt>) => api.post<Prompt>('/prompts/', data).then(res => res.data),
   update: (id: number, data: Partial<Prompt>) => api.put<Prompt>(`/prompts/${id}/`, data).then(res => res.data),
   delete: (id: number) => api.delete(`/prompts/${id}/`),
-  getCategories: () => api.get<{ value: string; name: string }[]>('/prompts/categories/').then(res => res.data),
+  getCategories: () => api.get<{ value: string; name: string }[]>('/prompts/categories').then(res => res.data),
   createDefaults: (businessId: number) => api.post(`/prompts/templates/${businessId}/`).then(res => res.data),
 }
 
