@@ -36,7 +36,7 @@ class TelephonyService:
         # Gather speech input
         gather = Gather(
             input="speech",
-            action="/api/calls/handle-input",
+            action="/api/webhooks/twilio/handle-input",
             method="POST",
             speechTimeout="auto",
             language="en-US"
@@ -47,7 +47,7 @@ class TelephonyService:
         
         # If no input, prompt again
         response.say("I didn't catch that. How may I help you?", voice=voice)
-        response.redirect("/api/calls/webhook")
+        response.redirect("/api/webhooks/twilio/voice")
         
         return str(response)
     
@@ -67,7 +67,7 @@ class TelephonyService:
         elif gather_input:
             gather = Gather(
                 input="speech",
-                action="/api/calls/handle-input",
+                action="/api/webhooks/twilio/handle-input",
                 method="POST",
                 speechTimeout="auto",
                 language="en-US"
@@ -77,7 +77,7 @@ class TelephonyService:
             
             # Timeout fallback
             response.say("Are you still there?", voice=voice)
-            response.redirect("/api/calls/webhook")
+            response.redirect("/api/webhooks/twilio/voice")
         else:
             response.say(message, voice=voice)
         
