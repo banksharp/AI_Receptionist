@@ -137,11 +137,11 @@ async def create_prompt(
     original_trigger_phrases = data.get("trigger_phrases")
     original_fields_to_collect = data.get("fields_to_collect")
     
-    # Convert lists to JSON strings for storage
-    if data.get("trigger_phrases"):
-        data["trigger_phrases"] = json.dumps(data["trigger_phrases"])
-    if data.get("fields_to_collect"):
-        data["fields_to_collect"] = json.dumps(data["fields_to_collect"])
+    # Convert lists to JSON strings for storage (check for not None, not truthiness)
+    if data.get("trigger_phrases") is not None:
+        data["trigger_phrases"] = json.dumps(data["trigger_phrases"]) if data["trigger_phrases"] else None
+    if data.get("fields_to_collect") is not None:
+        data["fields_to_collect"] = json.dumps(data["fields_to_collect"]) if data["fields_to_collect"] else None
     
     prompt = Prompt(**data)
     db.add(prompt)
@@ -190,11 +190,11 @@ async def update_prompt(
     response_trigger_phrases = update_data.get("trigger_phrases")
     response_fields_to_collect = update_data.get("fields_to_collect")
     
-    # Convert lists to JSON strings
-    if "trigger_phrases" in update_data and update_data["trigger_phrases"]:
-        update_data["trigger_phrases"] = json.dumps(update_data["trigger_phrases"])
-    if "fields_to_collect" in update_data and update_data["fields_to_collect"]:
-        update_data["fields_to_collect"] = json.dumps(update_data["fields_to_collect"])
+    # Convert lists to JSON strings (check for key presence, convert empty arrays to None)
+    if "trigger_phrases" in update_data:
+        update_data["trigger_phrases"] = json.dumps(update_data["trigger_phrases"]) if update_data["trigger_phrases"] else None
+    if "fields_to_collect" in update_data:
+        update_data["fields_to_collect"] = json.dumps(update_data["fields_to_collect"]) if update_data["fields_to_collect"] else None
     
     for field, value in update_data.items():
         setattr(prompt, field, value)
