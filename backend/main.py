@@ -25,7 +25,8 @@ app = FastAPI(
     title="AI Receptionist API",
     description="Backend API for the AI Receptionist Platform",
     version="1.0.0",
-    lifespan=lifespan
+    lifespan=lifespan,
+    redirect_slashes=False
 )
 
 # CORS middleware for frontend
