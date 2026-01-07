@@ -48,6 +48,7 @@ interface BusinessFormData {
   city: string
   state: string
   zip_code: string
+  ai_voice: string
   greeting_message: string
 }
 
@@ -100,6 +101,7 @@ export default function Businesses() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<BusinessFormData>({
     defaultValues: {
       business_type: 'dental',
+      ai_voice: 'alloy',
       greeting_message: 'Thank you for calling. How may I help you today?'
     }
   })
@@ -123,6 +125,7 @@ export default function Businesses() {
       city: business.city || '',
       state: business.state || '',
       zip_code: business.zip_code || '',
+      ai_voice: business.ai_voice || 'alloy',
       greeting_message: business.greeting_message
     })
     setShowModal(true)
@@ -362,6 +365,18 @@ export default function Businesses() {
                       placeholder="10001"
                     />
                   </div>
+                </div>
+
+                <div>
+                  <label className="label">AI Voice</label>
+                  <select {...register('ai_voice')} className="input-field">
+                    <option value="alloy">Alloy (Female, US)</option>
+                    <option value="echo">Echo (Male, US)</option>
+                    <option value="fable">Fable (Female, British)</option>
+                    <option value="onyx">Onyx (Male, British)</option>
+                    <option value="nova">Nova (Female, US)</option>
+                    <option value="shimmer">Shimmer (Female, US)</option>
+                  </select>
                 </div>
 
                 <div className="md:col-span-2">
