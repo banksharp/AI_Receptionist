@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gradient-primary: linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #0f766e 100%);
+  --gradient-accent: linear-gradient(135deg, #c026d3 0%, #a21caf 100%);
+  --gradient-surface: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+
+body {
+  @apply bg-surface-950 text-surface-100 antialiased;
+  background-image: 
+    radial-gradient(ellipse at 20% 0%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(192, 38, 211, 0.08) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-surface-500;
+}
+
+/* Smooth focus states */
+input:focus, textarea:focus, select:focus, button:focus {
+  @apply outline-none ring-2 ring-primary-500/50;
+}
+
+/* Card styles */
+@layer components {
+  .card {
+    @apply bg-surface-900/60 backdrop-blur-sm border border-surface-700/50 rounded-2xl;
+  }
+  
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-primary-500/30 hover:shadow-lg hover:shadow-primary-500/10;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-medium rounded-xl
+           transition-all duration-200 hover:from-primary-500 hover:to-primary-400 
+           active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-surface-800 border border-surface-600 text-surface-200 font-medium rounded-xl
+           transition-all duration-200 hover:bg-surface-700 hover:border-surface-500
+           active:scale-[0.98];
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 bg-surface-800/80 border border-surface-600/50 rounded-xl
+           text-surface-100 placeholder:text-surface-500
+           focus:border-primary-500/50 focus:bg-surface-800 transition-all duration-200;
+  }
+  
+  .label {
+    @apply block text-sm font-medium text-surface-300 mb-2;
+  }
+}
+
