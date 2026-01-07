@@ -11,7 +11,8 @@ import {
   Check,
   Sparkles,
   Tag,
-  Zap
+  Zap,
+  Building2
 } from 'lucide-react'
 import { promptApi, businessApi, Prompt } from '../services/api'
 
@@ -253,14 +254,16 @@ export default function Prompts() {
           animate="show"
           className="grid grid-cols-1 md:grid-cols-2 gap-4"
         >
-          {prompts.map((prompt) => (
+          {prompts.map((prompt) => {
+            const business = businesses.find(b => b.id === prompt.business_id)
+            return (
             <motion.div
               key={prompt.id}
               variants={itemVariants}
               className="card-hover p-6 group"
             >
               <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${categoryColors[prompt.category] || categoryColors.custom}`}>
                     {prompt.category}
                   </span>
@@ -268,6 +271,12 @@ export default function Prompts() {
                     <span className="flex items-center gap-1 px-2 py-1 bg-amber-500/20 text-amber-400 rounded-full text-xs">
                       <Zap className="w-3 h-3" />
                       Priority {prompt.priority}
+                    </span>
+                  )}
+                  {business && (
+                    <span className="flex items-center gap-1 px-2 py-1 bg-primary-500/20 text-primary-400 rounded-full text-xs">
+                      <Building2 className="w-3 h-3" />
+                      {business.name}
                     </span>
                   )}
                 </div>
@@ -314,7 +323,7 @@ export default function Prompts() {
                 </div>
               )}
             </motion.div>
-          ))}
+          )})}
         </motion.div>
       )}
 
