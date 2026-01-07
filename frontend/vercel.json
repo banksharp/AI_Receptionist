@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://your-backend.railway.app/api/:path*"
+      "destination": "https://aireceptionist-production-db96.up.railway.app/api/:path*"
     }
   ]
 }
