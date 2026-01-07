@@ -86,49 +86,49 @@ export interface Integration {
 
 // Business API
 export const businessApi = {
-  list: () => api.get<Business[]>('/businesses/').then(res => res.data),
-  get: (id: number) => api.get<Business>(`/businesses/${id}/`).then(res => res.data),
-  create: (data: Partial<Business>) => api.post<Business>('/businesses/', data).then(res => res.data),
-  update: (id: number, data: Partial<Business>) => api.put<Business>(`/businesses/${id}/`, data).then(res => res.data),
-  delete: (id: number) => api.delete(`/businesses/${id}/`),
+  list: () => api.get<Business[]>('/businesses').then(res => res.data),
+  get: (id: number) => api.get<Business>(`/businesses/${id}`).then(res => res.data),
+  create: (data: Partial<Business>) => api.post<Business>('/businesses', data).then(res => res.data),
+  update: (id: number, data: Partial<Business>) => api.put<Business>(`/businesses/${id}`, data).then(res => res.data),
+  delete: (id: number) => api.delete(`/businesses/${id}`),
 }
 
 // Prompt API
 export const promptApi = {
   list: (businessId?: number) => {
     const params = businessId ? { business_id: businessId } : {}
-    return api.get<Prompt[]>('/prompts/', { params }).then(res => res.data)
+    return api.get<Prompt[]>('/prompts', { params }).then(res => res.data)
   },
-  get: (id: number) => api.get<Prompt>(`/prompts/${id}/`).then(res => res.data),
-  create: (data: Partial<Prompt>) => api.post<Prompt>('/prompts/', data).then(res => res.data),
-  update: (id: number, data: Partial<Prompt>) => api.put<Prompt>(`/prompts/${id}/`, data).then(res => res.data),
-  delete: (id: number) => api.delete(`/prompts/${id}/`),
+  get: (id: number) => api.get<Prompt>(`/prompts/${id}`).then(res => res.data),
+  create: (data: Partial<Prompt>) => api.post<Prompt>('/prompts', data).then(res => res.data),
+  update: (id: number, data: Partial<Prompt>) => api.put<Prompt>(`/prompts/${id}`, data).then(res => res.data),
+  delete: (id: number) => api.delete(`/prompts/${id}`),
   getCategories: () => api.get<{ value: string; name: string }[]>('/prompts/categories').then(res => res.data),
-  createDefaults: (businessId: number) => api.post(`/prompts/templates/${businessId}/`).then(res => res.data),
+  createDefaults: (businessId: number) => api.post(`/prompts/templates/${businessId}`).then(res => res.data),
 }
 
 // Call API
 export const callApi = {
   list: (businessId?: number) => {
     const params = businessId ? { business_id: businessId } : {}
-    return api.get<Call[]>('/calls/', { params }).then(res => res.data)
+    return api.get<Call[]>('/calls', { params }).then(res => res.data)
   },
-  get: (id: number) => api.get<Call>(`/calls/${id}/`).then(res => res.data),
-  getStats: (businessId: number) => api.get(`/calls/stats/${businessId}/`).then(res => res.data),
+  get: (id: number) => api.get<Call>(`/calls/${id}`).then(res => res.data),
+  getStats: (businessId: number) => api.get(`/calls/stats/${businessId}`).then(res => res.data),
 }
 
 // Integration API
 export const integrationApi = {
-  listAvailable: () => api.get('/integrations/available/').then(res => res.data),
+  listAvailable: () => api.get('/integrations/available').then(res => res.data),
   list: (businessId?: number) => {
     const params = businessId ? { business_id: businessId } : {}
-    return api.get<Integration[]>('/integrations/', { params }).then(res => res.data)
+    return api.get<Integration[]>('/integrations', { params }).then(res => res.data)
   },
-  get: (id: number) => api.get<Integration>(`/integrations/${id}/`).then(res => res.data),
-  create: (data: Partial<Integration>) => api.post<Integration>('/integrations/', data).then(res => res.data),
-  update: (id: number, data: Partial<Integration>) => api.put<Integration>(`/integrations/${id}/`, data).then(res => res.data),
-  delete: (id: number) => api.delete(`/integrations/${id}/`),
-  test: (id: number) => api.post(`/integrations/${id}/test/`).then(res => res.data),
+  get: (id: number) => api.get<Integration>(`/integrations/${id}`).then(res => res.data),
+  create: (data: Partial<Integration>) => api.post<Integration>('/integrations', data).then(res => res.data),
+  update: (id: number, data: Partial<Integration>) => api.put<Integration>(`/integrations/${id}`, data).then(res => res.data),
+  delete: (id: number) => api.delete(`/integrations/${id}`),
+  test: (id: number) => api.post(`/integrations/${id}/test`).then(res => res.data),
 }
 
 export default api
