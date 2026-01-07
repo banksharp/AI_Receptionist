@@ -74,6 +74,7 @@ export interface Integration {
   name: string
   integration_type: string
   api_base_url?: string
+  api_key?: string
   config: Record<string, unknown>
   is_active: boolean
   is_connected: boolean

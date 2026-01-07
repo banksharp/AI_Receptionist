@@ -3,7 +3,6 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { motion } from 'framer-motion'
 import { 
   Plug, 
-  Plus, 
   Check,
   X,
   ExternalLink,
@@ -13,7 +12,7 @@ import {
   Database,
   Zap
 } from 'lucide-react'
-import { integrationApi, businessApi, Integration } from '../services/api'
+import { integrationApi, businessApi } from '../services/api'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -55,7 +54,7 @@ export default function Integrations() {
     queryFn: integrationApi.listAvailable
   })
 
-  const { data: integrations = [], isLoading } = useQuery({
+  const { data: integrations = [] } = useQuery({
     queryKey: ['integrations'],
     queryFn: () => integrationApi.list()
   })

@@ -1,15 +1,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { 
-  Settings as SettingsIcon, 
   Key, 
   Phone, 
   Bot,
   Save,
   Eye,
   EyeOff,
-  CheckCircle2,
-  AlertCircle
+  CheckCircle2
 } from 'lucide-react'
 
 export default function Settings() {

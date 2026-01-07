@@ -5,9 +5,7 @@ import { format } from 'date-fns'
 import { 
   Phone, 
   PhoneIncoming,
-  PhoneOutgoing,
   Clock,
-  User,
   MessageSquare,
   ChevronDown,
   ChevronUp,
@@ -16,7 +14,7 @@ import {
   XCircle,
   ArrowRightLeft
 } from 'lucide-react'
-import { callApi, businessApi, Call } from '../services/api'
+import { callApi, businessApi } from '../services/api'
 
 const containerVariants = {
   hidden: { opacity: 0 },

@@ -9,7 +9,6 @@ import {
   MapPin, 
   Clock,
   MessageSquareText,
-  Plug,
   PhoneIncoming,
   Bot
 } from 'lucide-react'
